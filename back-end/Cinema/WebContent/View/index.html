@@ -1,0 +1,16 @@
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<template id="hello">
+	<h1>{{msg | caixabaixa}} {{usuario.nome}}</h1>
+</template>
+
+<div id="app">
+	<hello-component v-bind:usuario = "contato"></hello-component>
+</div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js">
+</script>
+<script type="text/javascript" charset="utf-8" src="index.js"></script>

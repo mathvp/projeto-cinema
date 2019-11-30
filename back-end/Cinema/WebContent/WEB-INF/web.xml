@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>WebService-Exemplo</display-name>
+	<!-- Mapeamento das requisições ao servidor para o Servlet REST -->
+	<servlet>
+		<!-- Identificador da classe que receberá requisições -->
+		<servlet-name>Jersey WS Servlet</servlet-name>
+		<!-- Nome completo (com o pacote) da classe Jersey que é um Servlet REST -->
+		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+
+		<init-param>
+			<!-- Parametro do Jersey que especifica em qual pacote estão as classes de WebService -->
+			<param-name>jersey.config.server.provider.packages</param-name>
+			<!-- Pacote neste projeto estão as classes de WebService -->
+			<param-value>cinema.resource</param-value>
+		</init-param>
+		
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<!-- Mapeia o servlet anteriormente configurado para uma URL -->
+		<servlet-name>Jersey WS Servlet</servlet-name>
+		<!-- padrão de URL que ativará o Servlet Jersey REST -->
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- Indica qual arquivo deve ser retornado como resposta quando a URL do 
+		servidor é acessada -->
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+</web-app>
