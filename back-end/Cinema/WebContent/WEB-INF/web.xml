@@ -15,7 +15,7 @@
 			<!-- Parametro do Jersey que especifica em qual pacote estão as classes de WebService -->
 			<param-name>jersey.config.server.provider.packages</param-name>
 			<!-- Pacote neste projeto estão as classes de WebService -->
-			<param-value>cinema.resource</param-value>
+			<param-value>br.com.cinema.resource</param-value>
 		</init-param>
 		
 		<load-on-startup>1</load-on-startup>

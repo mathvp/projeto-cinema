@@ -2,12 +2,18 @@ package br.com.cinema.model;
 
 import java.sql.Time;
 import java.util.Date;
+
 public class Filme {
 	
 	int id;
+	
 	String titulo;
-	Time duracao;
+	int duracao;
+	
 	Date dataLancamento;
+	
+	
+	int status;
 	
 	public int getId() {
 		return id;
@@ -21,11 +27,11 @@ public class Filme {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public Time getDuracao() {
+	public int getDuracao() {
 		return duracao;
 	}
-	public void setDuracao(Time time) {
-		this.duracao = time;
+	public void setDuracao(int duracao) {
+		this.duracao = duracao;
 	}
 	public Date getDataLancamento() {
 		return dataLancamento;

@@ -1,5 +1,5 @@
 package br.com.cinema.model;
 
-public enum Status {
+public enum StatusCadeira {
 	DISPONIVEL,RESERVADO;
 }

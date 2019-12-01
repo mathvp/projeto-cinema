@@ -3,9 +3,8 @@ package br.com.cinema.model;
 public class Cadeira {
 	
 	int id;
-	Status statusCadeira;
-	char linhaCadeira;
+	StatusCadeira statusCadeira;
+	char fileira;
 	int	numeroCadeira;
-	
 	Sala sala;
 }

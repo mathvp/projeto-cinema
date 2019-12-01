@@ -5,7 +5,7 @@ import java.util.Date;
 public class Sessao {
 	
 	int id;
-	Date horarioSessao;
+	Date horaSessao;
 	double valorIngresso;
 	Date encerramento;
 	Filme filme;
