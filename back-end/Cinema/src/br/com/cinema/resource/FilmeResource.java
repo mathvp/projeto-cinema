@@ -9,9 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -26,7 +28,10 @@ public class FilmeResource {
 		try {
 			FilmeDAO fdao = new FilmeDAO();
 			lista = fdao.BuscaFilmes();
-			return lista;
+			if(lista != null) {
+				return lista;
+			}
+			return null;
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
@@ -44,6 +49,24 @@ public class FilmeResource {
 			FilmeDAO fdao = new FilmeDAO();
 			fdao.CadastrarFilme(filme);
 			return true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	
+	@DELETE
+	@Path("/{id}")
+	public boolean delete(@PathParam("id") int idFilme) {
+		try {
+			FilmeDAO fdao = new FilmeDAO();
+			if(idFilme != 0) {
+				fdao.DeleteFilme(idFilme);
+				return true;
+			}
+			return false;
 		}
 		catch(Exception e) {
 			e.printStackTrace();

@@ -13,8 +13,14 @@ public class Filme {
 	Date dataLancamento;
 	
 	
-	int status;
+	StatusFilme status;
 	
+	public StatusFilme getStatus() {
+		return status;
+	}
+	public void setStatus(StatusFilme status) {
+		this.status = status;
+	}
 	public int getId() {
 		return id;
 	}
