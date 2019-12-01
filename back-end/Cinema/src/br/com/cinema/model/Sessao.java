@@ -1,4 +1,4 @@
-package Model;
+package br.com.cinema.model;
 
 import java.util.Date;
 
