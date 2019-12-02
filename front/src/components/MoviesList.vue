@@ -34,6 +34,7 @@ export default {
   mounted() {
     axios.get(process.env.VUE_APP_API_URL+'/filmes')
     .then(response => {
+      console.log("chegou aqui")
       this.moviesList = response.data
     })
   },
@@ -56,6 +57,7 @@ export default {
     margin-bottom: 60px;
   }
   .movies-wrapper {
+    flex-wrap:wrap;
     width: 100%;
     display: flex;
     justify-content: space-between;

@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import br.com.cinema.model.Filme;
@@ -40,19 +43,19 @@ public class SessaoDAO implements BasicDAO {
 			ResultSet result = stmt.executeQuery(sql);
 			while (result.next()) {
 				Sessao objSessao = new Sessao();
-				 objSessao.setId(result.getInt("id"));
-				objSessao.setHoraSessao(result.getDate("horaSessao"));
+				objSessao.setId(result.getInt("id"));
+				SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd"); 
+				objSessao.setHoraSessao(formato.parse(result.getDate("horasessao").toString()));
 				objSessao.setValorInteira(result.getDouble("valorInteiro"));
 				objSessao.setValorMeia(result.getDouble("valorMeia"));
 				objSessao.setIdSala(result.getInt("Sala_id"));
-				objSessao.setIdFilme(result.getInt("Filmes_id"));
-				objSessao.setEncerramento(result.getDate("encerramento"));
+				objSessao.setEncerramento(formato.parse(result.getDate("horasessao").toString()));
 				listaSessao.add(objSessao);
 			}
 
 			conn.close();
 
-			return (List<Object>) (Object) listaSessao;
+			return (List<Object>)(Object)listaSessao;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

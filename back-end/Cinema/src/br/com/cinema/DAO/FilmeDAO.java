@@ -70,7 +70,7 @@ public class FilmeDAO implements BasicDAO {
 			List<Filme> listaFilmes = new ArrayList();
 			Connection conn = new ConnectionFactory().getConnection();
 			Statement stmt = conn.createStatement();
-			String sql = "SELECT * FROM filmes";
+			String sql = "SELECT * FROM filmes where status = 1";
 			ResultSet result = stmt.executeQuery(sql);
 			
 			while(result.next()) {

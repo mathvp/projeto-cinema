@@ -33,6 +33,7 @@ export default {
   created() {
     axios.get(process.env.VUE_APP_API_URL+'/filmes/'+this.movie_id)
     .then(response => {
+      console.log(response.data)
       this.movieInfo = response.data
     })
   }

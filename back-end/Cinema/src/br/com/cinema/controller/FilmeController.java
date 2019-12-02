@@ -18,14 +18,18 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("Filmes")
+@Path("filmes")
 public class FilmeController {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Object> index(){
+	public Response index(){
 		Filme objFilme = new Filme();
-		return	objFilme.ListarFilmes();
+		return   Response.ok() //200
+				.entity((List<Object>) objFilme.ListarFilmes())
+				.header("Access-Control-Allow-Origin", "*")
+				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
+				.allow("OPTIONS").build();
 	}
 	
 	
@@ -33,11 +37,11 @@ public class FilmeController {
 	@Path("/novo")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public boolean cadastrar(Filme filme) {
+	public Response cadastrar(Filme filme) {
 		Filme modelo = new Filme();
 		
-		return modelo.cadastrarFilme(filme);
 		
+		return Response.status(201).entity(modelo.cadastrarFilme(filme)).build();
 	}
 	
 	
