@@ -1,4 +1,4 @@
-package br.com.cinema.resource;
+package br.com.cinema.controller;
 
 import br.com.cinema.model.Filme;
 import br.com.cinema.DAO.*;
@@ -19,25 +19,13 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("Filmes")
-public class FilmeResource {
-	
+public class FilmeController {
+
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Filme> index(){
-		List<Filme> lista = new ArrayList();
-		try {
-			FilmeDAO fdao = new FilmeDAO();
-			lista = fdao.BuscaFilmes();
-			if(lista != null) {
-				return lista;
-			}
-			return null;
-		}
-		catch(SQLException e) {
-			e.printStackTrace();
-		}
-			
-		return null;
+	public List<Object> index(){
+		Filme objFilme = new Filme();
+		return	objFilme.ListarFilmes();
 	}
 	
 	
@@ -45,33 +33,21 @@ public class FilmeResource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public boolean cadastrar(Filme filme) {
-		try {
-			FilmeDAO fdao = new FilmeDAO();
-			fdao.CadastrarFilme(filme);
-			return true;
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		return false;
+		Filme modelo = new Filme();
+		
+		return modelo.cadastrarFilme(filme);
+		
 	}
 	
 	
 	@DELETE
 	@Path("/{id}")
 	public boolean delete(@PathParam("id") int idFilme) {
-		try {
-			FilmeDAO fdao = new FilmeDAO();
-			if(idFilme != 0) {
-				fdao.DeleteFilme(idFilme);
-				return true;
-			}
-			return false;
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		return false;
+		
+		Filme filme = new Filme();
+		
+		return filme.deletarFilme(idFilme);
+		
 	}
 	
 }

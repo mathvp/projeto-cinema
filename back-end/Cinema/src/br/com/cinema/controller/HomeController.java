@@ -1,4 +1,4 @@
-package br.com.cinema.resource;
+package br.com.cinema.controller;
 
 import java.sql.SQLException;
 
@@ -10,7 +10,7 @@ import javax.ws.rs.core.MediaType;
 import br.com.cinema.DAO.*;
 
 @Path("/")
-public class HomeResource {
+public class HomeController {
 	@GET
 	public String index() throws SQLException {
 		
