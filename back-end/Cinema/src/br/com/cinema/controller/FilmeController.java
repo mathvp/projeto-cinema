@@ -30,6 +30,7 @@ public class FilmeController {
 	
 	
 	@POST
+	@Path("/novo")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public boolean cadastrar(Filme filme) {
