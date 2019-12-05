@@ -101,15 +101,15 @@ public class Filme implements IFilme{
 		FilmeDAO fdao = new FilmeDAO();
 		lista = fdao.getAll();
 		if(lista != null) {
-			return  lista;
+			return  (List<Object>) lista;
 		}
 		return null;
 	}
 	@Override
-	public Filme getFilmeById() {
+	public Object getFilmeById(int idFilme) {
 		// TODO Auto-generated method stub
 		FilmeDAO fdao = new FilmeDAO();
-		return fdao.getFilmeById();
+		return fdao.getFilmeById(idFilme);
 	}
 	
 	

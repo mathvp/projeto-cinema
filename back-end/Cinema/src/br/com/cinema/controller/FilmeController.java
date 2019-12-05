@@ -36,11 +36,15 @@ public class FilmeController {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Object> index(){
 		Filme objFilme = new Filme();
-		return objFilme.ListarFilmes();
+		List<Object> lista = new ArrayList();
+		lista = objFilme.ListarFilmes();
+		
+		return lista;
 	}
 	
 	@GET
-	@Consumes(MediaType.APPLICATION_JSON_TYPE)
+	@Path("/{id}")
+	@Consumes(MediaType.APPLICATION_JSON)
 	public Object getFilmeById(int idFilme) {
 		Filme filme = new Filme();
 		filme.getFilmeById(idFilme);
@@ -59,7 +63,6 @@ public class FilmeController {
 		
 		return true;
 	}
-	
 	
 	@DELETE
 	@Path("/{id}")

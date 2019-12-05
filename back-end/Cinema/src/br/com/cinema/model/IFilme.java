@@ -10,5 +10,5 @@ public interface IFilme {
 	
 	public List<Object> ListarFilmes();
 	
-	public Filme getFilmeById();
+	public Object getFilmeById(int idFilme);
 }

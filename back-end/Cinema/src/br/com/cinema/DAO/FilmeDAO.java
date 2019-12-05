@@ -24,7 +24,7 @@ public class FilmeDAO implements BasicDAO {
 		// TODO Auto-generated method stub
 		try {
 			Connection conn = new ConnectionFactory().getConnection();
-			String sql = "INSERT INTO filmes (titulo,duracao,status,dataLancamento) VALUES (?,?,?,'2019-12-01')";
+			String sql = "INSERT INTO filmes (titulo,duracao,status,dataLancamento,sinopse) VALUES (?,?,?,'2019-12-01',?)";
 			PreparedStatement stmt = conn.prepareStatement(sql);			
 			stmt.setString(1, ((Filme) filme).getTitulo());
 			stmt.setInt(2, ((Filme) filme).getDuracao());
@@ -71,7 +71,7 @@ public class FilmeDAO implements BasicDAO {
 			List<Filme> listaFilmes = new ArrayList();
 			Connection conn = new ConnectionFactory().getConnection();
 			Statement stmt = conn.createStatement();
-			String sql = "SELECT * FROM filmes where status = 1";
+			String sql = "SELECT * FROM filmes";
 			ResultSet result = stmt.executeQuery(sql);
 			
 			while(result.next()) {
@@ -81,10 +81,10 @@ public class FilmeDAO implements BasicDAO {
 				objFilme.setDuracao(result.getInt("duracao"));
 				objFilme.setStatus(StatusFilme.values()[result.getInt("status")]);
 				objFilme.setImagem(result.getString("imagem"));
-				//objFilme.setDataLancamento(result.getDate("dataLancamento"));
+				objFilme.setSinopse(result.getString("sinopse"));
+				//objFilme.setDataLancamento(resu);
 				listaFilmes.add(objFilme);
 			}
-			
 			conn.close();
 			
 			return (List<Object>)(Object)listaFilmes;
@@ -119,8 +119,8 @@ public class FilmeDAO implements BasicDAO {
 			return objFilme;
 			
 		}
-		catch{
-			
+		catch(Exception e){
+			e.printStackTrace();
 		}
 		return null;
 	}
