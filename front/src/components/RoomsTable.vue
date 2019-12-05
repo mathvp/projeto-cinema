@@ -1,6 +1,6 @@
 <template>
   <div class="movies-table content">
-    <table v-if="moviesList">
+    <table v-if="roomsList">
       <thead>
         <tr>
           <th>#</th>
@@ -10,18 +10,18 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="movie in filteredMovies" :key="movie.id" :id="movie.id">
+        <tr v-for="room in filteredRooms" :key="room.id" :id="room.id">
           <td class="text-center">
-            <router-link :to="{ name: 'movieShow', params: { movie_id: movie.id } }">{{movie.id}}</router-link>
+            <router-link :to="{ name: 'roomShow', params: { room_id: room.id } }">{{room.id}}</router-link>
           </td>
           <td>
-            <router-link :to="{ name: 'movieShow', params: { movie_id: movie.id } }">{{movie.titulo}}</router-link>
+            <router-link :to="{ name: 'roomShow', params: { room_id: room.id } }">{{room.numeroSala}}</router-link>
           </td>
           <td>
-            <router-link :to="{ name: 'movieShow', params: { movie_id: movie.id } }">{{movie.duracao}}</router-link>
+            <router-link :to="{ name: 'roomShow', params: { room_id: room.id } }">{{room.limiteReserva}}</router-link>
           </td>
           <td>
-            <router-link :to="{ name: 'movieShow', params: { movie_id: movie.id } }">{{movie.status}}</router-link>
+            <router-link :to="{ name: 'roomShow', params: { room_id: room.id } }">{{room.status}}</router-link>
           </td>
         </tr>
       </tbody>
