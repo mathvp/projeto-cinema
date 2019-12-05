@@ -3,7 +3,7 @@
     <h1>{{movieInfo.titulo}}</h1>
     <div class="movie-info content">
       <div class="movie-img">
-        <img src="http://templatelab.com/wp-content/uploads/2019/06/movie-poster-template-10.jpg" alt="">
+        <img :src="movieInfo.imagem" alt="">
       </div>
       <div class="movie-data">
         <table>

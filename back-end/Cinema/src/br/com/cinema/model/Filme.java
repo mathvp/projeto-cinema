@@ -15,6 +15,15 @@ public class Filme implements IFilme{
 	String titulo;
 	int duracao;
 	
+	String imagem;
+	public String getSinopse() {
+		return sinopse;
+	}
+	public void setSinopse(String sinopse) {
+		this.sinopse = sinopse;
+	}
+	String sinopse;
+	
 	Date dataLancamento;
 	
 	
@@ -49,6 +58,12 @@ public class Filme implements IFilme{
 	}
 	public void setDataLancamento(Date dataLancamento) {
 		this.dataLancamento = dataLancamento;
+	}
+	public String getImagem() {
+		return imagem;
+	}
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
 	@Override
 	public boolean cadastrarFilme(Filme filme) {
@@ -89,6 +104,12 @@ public class Filme implements IFilme{
 			return  lista;
 		}
 		return null;
+	}
+	@Override
+	public Filme getFilmeById() {
+		// TODO Auto-generated method stub
+		FilmeDAO fdao = new FilmeDAO();
+		return fdao.getFilmeById();
 	}
 	
 	

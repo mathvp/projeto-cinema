@@ -21,27 +21,43 @@ import javax.ws.rs.core.Response;
 @Path("filmes")
 public class FilmeController {
 
+//	@GET
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Response index(){
+//		Filme objFilme = new Filme();
+//		return   Response.ok() //200
+//				.entity((List<Object>) objFilme.ListarFilmes())
+//				.header("Access-Control-Allow-Origin", "*")
+//				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
+//				.allow("OPTIONS").build();
+//	}
+	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response index(){
+	public List<Object> index(){
 		Filme objFilme = new Filme();
-		return   Response.ok() //200
-				.entity((List<Object>) objFilme.ListarFilmes())
-				.header("Access-Control-Allow-Origin", "*")
-				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
-				.allow("OPTIONS").build();
+		return objFilme.ListarFilmes();
 	}
 	
+	@GET
+	@Consumes(MediaType.APPLICATION_JSON_TYPE)
+	public Object getFilmeById(int idFilme) {
+		Filme filme = new Filme();
+		filme.getFilmeById(idFilme);
+		return null;
+		
+		
+	}
 	
 	@POST
 	@Path("/novo")
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response cadastrar(Filme filme) {
+	public boolean cadastrar(Filme filme) {
 		Filme modelo = new Filme();
 		
+		modelo.cadastrarFilme(filme);
 		
-		return Response.status(201).entity(modelo.cadastrarFilme(filme)).build();
+		return true;
 	}
 	
 	

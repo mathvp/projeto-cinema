@@ -3,7 +3,7 @@
     <div v-if="moviesList.length > 0" class="movies-wrapper container">
       <div v-for="movie in filteredMovies" :key="movie.id" :id="movie.id" class="movies-item">
         <router-link :to="{ name: 'movieShow', params: { movie_id: movie.id } }">
-          <img src="https://www.cinemark.com.br/content/uploads/movie/7185/black-friday-midway-batalha-em-alto-mar-poster-desktop.jpg" alt="">
+          <img :src="movie.imagem" alt="">
           <div class="description-overlay">
             <p class="description-text">
               {{movie.titulo}}
@@ -71,6 +71,7 @@ export default {
   .movies-item {
     position: relative;
     cursor: pointer;
+    margin: 3%;
   }
 
   .description-overlay {

@@ -9,4 +9,6 @@ public interface IFilme {
 	public boolean deletarFilme(int idFilme);
 	
 	public List<Object> ListarFilmes();
+	
+	public Filme getFilmeById();
 }

@@ -30,6 +30,7 @@ public class FilmeDAO implements BasicDAO {
 			stmt.setInt(2, ((Filme) filme).getDuracao());
 			stmt.setInt(3, ((Filme) filme).getStatus().getValue());
 			//stmt.setDate(4, (Date) filme.getDataLancamento());
+			stmt.setString(5, ((Filme) filme).getSinopse());
 			
 			stmt.executeUpdate();
 			stmt.close();
@@ -79,6 +80,7 @@ public class FilmeDAO implements BasicDAO {
 				objFilme.setTitulo(result.getString("titulo"));
 				objFilme.setDuracao(result.getInt("duracao"));
 				objFilme.setStatus(StatusFilme.values()[result.getInt("status")]);
+				objFilme.setImagem(result.getString("imagem"));
 				//objFilme.setDataLancamento(result.getDate("dataLancamento"));
 				listaFilmes.add(objFilme);
 			}
@@ -91,6 +93,35 @@ public class FilmeDAO implements BasicDAO {
 			e.printStackTrace();
 		}
 		
+		return null;
+	}
+
+
+	public Object getFilmeById(int idFilme) {
+		// TODO Auto-generated method stub
+		try {
+			Connection conn = new ConnectionFactory().getConnection();
+			Statement stmt = conn.createStatement();
+			String sql = "Select * from filmes where id =" + idFilme;
+			ResultSet result = stmt.executeQuery(sql);
+			Filme objFilme = new Filme();
+			while(result.next()) {
+				objFilme.setId(result.getInt("id"));
+				objFilme.setTitulo(result.getString("titulo"));
+				objFilme.setDuracao(result.getInt("duracao"));
+				objFilme.setStatus(StatusFilme.values()[result.getInt("status")]);
+				objFilme.setImagem(result.getString("imagem"));
+				//objFilme.setDataLancamento(result.getDate("dataLancamento"));
+			}
+			
+			conn.close();
+			
+			return objFilme;
+			
+		}
+		catch{
+			
+		}
 		return null;
 	}
 }

@@ -47,11 +47,13 @@ export default {
       formSubmit(e) {
           e.preventDefault();
           let currentObj = this;
-          axios.post(process.env.VUE_APP_API_URL+"/filmes/novo", {
+          axios.post(process.env.VUE_APP_API_URL+"/filmes/novo",
+           {
               titulo: this.titulo,
               duracao: this.duracao,
               descricao: this.descricao
-          })
+          }
+        )
           .then(function (response) {
               currentObj.output = response.data;
           })
