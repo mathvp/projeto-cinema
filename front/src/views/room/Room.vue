@@ -4,7 +4,7 @@
     
     <div class="movie-info content">
       <div class="movie-img">
-        <img src="../../assets/cover-placeholder.png" alt="sala">
+        <img src="../../assets/img/cover-placeholder.png" alt="sala">
       </div>
       <div class="movie-data">
         <table>

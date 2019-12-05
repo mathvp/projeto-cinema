@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Movie from '../views/movie/Movie.vue'
 import NewMovie from '../views/movie/NewMovie.vue'
+import Room from '../views/room/Room.vue'
+import NewRoom from '../views/room/NewRoom.vue'
 
 Vue.use(VueRouter)
 
@@ -27,21 +29,21 @@ const routes = [
     name: 'newMovie',
     component: NewMovie
   },
-  // {
-  //   path: '/salas',
-  //   name: 'rooms',
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/room/Rooms.vue')
-  // },
-  // {
-  //   path: '/salas/:room_id',
-  //   name: 'roomShow',
-  //   component: Room
-  // },
-  // {
-  //   path: '/salas/novo',
-  //   name: 'newRoom',
-  //   component: NewRoom
-  // },
+  {
+    path: '/salas',
+    name: 'rooms',
+    component: () => import(/* webpackChunkName: "about" */ '../views/room/Rooms.vue')
+  },
+  {
+    path: '/salas/:room_id',
+    name: 'roomShow',
+    component: Room
+  },
+  {
+    path: '/salas/novo',
+    name: 'newRoom',
+    component: NewRoom
+  },
 ]
 
 const router = new VueRouter({

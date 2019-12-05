@@ -41,7 +41,7 @@ export default {
       formSubmit(e) {
           e.preventDefault();
           let currentObj = this;
-          axios.post(process.env.VUE_APP_API_URL+"/filmes/novo",
+          axios.post(process.env.VUE_APP_API_URL+"/salas/novo",
            {
               numeroSala: this.numeroSala,
               limiteReserva: this.limiteReserva

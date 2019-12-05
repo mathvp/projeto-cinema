@@ -34,28 +34,28 @@
 import axios from 'axios'
 
 export default {
-  name: 'MoviesTable',
+  name: 'RoomsTable',
   data() {
     return {
-      moviesList: [],
+      roomsList: [],
       searchTerm: ''
     }
   },
   created() {
   },
   mounted() {
-    axios.get(process.env.VUE_APP_API_URL+'/filmes')
+    axios.get(process.env.VUE_APP_API_URL+'/rooms')
     .then(response => {
-      this.moviesList = response.data
+      this.roomsList = response.data
     })
   },
   computed: {
-    filteredMovies() {
+    filteredRooms() {
       if(this.searchTerm === ''){
-        return this.moviesList
+        return this.roomsList
       }
-      return Array.from(this.moviesList).filter(movie => {
-        return movie.titulo.toLowerCase().match(this.searchTerm.toLowerCase())
+      return Array.from(this.roomsList).filter(room => {
+        return room.numeroSala.match(this.searchTerm)
       })
     }
   }

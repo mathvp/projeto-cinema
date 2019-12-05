@@ -1,13 +1,13 @@
 <template>
   <div class="movies container">
     <h1>Lista de Salas</h1>
-    <MoviesTable />
+    <RoomsTable />
   </div>
 </template>
 
 <script>
 
-import MoviesTable from '@/components/RoomsTable'
+import RoomsTable from '@/components/RoomsTable'
 
 export default {
   name: 'Rooms',

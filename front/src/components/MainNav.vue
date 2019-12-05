@@ -31,11 +31,11 @@
 
           <li>
             <label for="drop-3" class="toggle">Salas</label>
-            <a href="#">Salas</a>
+            <a href="/salas">Salas</a>
             <input type="checkbox" id="drop-3"/>
             <ul>
-              <li><a href="#">Listar Salas</a></li>
-              <li><a href="#">Cadastrar Sala</a></li>
+              <li><a href="/salas">Listar Salas</a></li>
+              <li><a href="/salas/novo">Cadastrar Sala</a></li>
             </ul>
           </li>
           <li><a href="#">Teste</a></li>
