@@ -1,6 +1,7 @@
 <template>
   <div class="movies container">
-    <h1>{{roomInfo.numero}}</h1>
+    <h1>{{roomInfo.numeroSala}}</h1>
+    
     <div class="movie-info content">
       <div class="movie-img">
         <img src="../../assets/cover-placeholder.png" alt="sala">
@@ -10,7 +11,7 @@
           <tbody>
             <tr>
               <td>Numero:</td>
-              <td>{{roomInfo.numero}} nº</td>
+              <td>{{roomInfo.numeroSala}} nº</td>
             </tr>
           </tbody>
         </table>
@@ -23,18 +24,18 @@
 import axios from 'axios'
 
 export default {
-  name: 'Movie',
+  name: 'Room',
   data() {
     return {
       room_id: this.$route.params.room_id,
-      movieInfo: {}
+      roomInfo: {}
     }
   },
   created() {
     axios.get(process.env.VUE_APP_API_URL+'/salas/'+this.room_id)
     .then(response => {
       console.log(response.data)
-      this.movieInfo = response.data
+      this.roomInfo = response.data
     })
   }
 }

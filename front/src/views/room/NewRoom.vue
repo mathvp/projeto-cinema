@@ -9,16 +9,11 @@
           <h4>Informe os dados da sala no formulário abaixo:</h4>
           <fieldset>
             <label for="">Numero da sala</label>
-            <input v-model="numero" placeholder="Ex.: 3" type="text" tabindex="1" required autofocus>
+            <input v-model="numeroSala" placeholder="Ex.: 3" type="text" tabindex="1" required autofocus>
           </fieldset>
           <fieldset>
             <label for="">Capacidade</label>
-            <input v-model="capacidade" placeholder="Ex.: 120" type="number" tabindex="2" required><span class="movie-duration">pessoas</span>
-          </fieldset>
-          
-          <fieldset>
-            <label for="">Status</label>
-            <textarea v-model="status" placeholder="disponível/ocupada" tabindex="5" ></textarea>
+            <input v-model="limiteReserva" placeholder="Ex.: 120" type="number" tabindex="2" required><span class="movie-duration">pessoas</span>
           </fieldset>
           <fieldset>
             <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
@@ -37,9 +32,8 @@ export default {
   name: 'NewRoom',
   data() {
     return {
-      numero: '',
-      capacidade: '',
-      status: '',
+      numeroSala: '',
+      limiteReserva: '',
       output: ''
     }
   },
@@ -49,9 +43,8 @@ export default {
           let currentObj = this;
           axios.post(process.env.VUE_APP_API_URL+"/filmes/novo",
            {
-              numero: this.numero,
-              capacidade: this.capacidade,
-              status: this.status
+              numeroSala: this.numeroSala,
+              limiteReserva: this.limiteReserva
           }
         )
           .then(function (response) {
