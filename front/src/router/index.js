@@ -26,7 +26,22 @@ const routes = [
     path: '/filmes/novo',
     name: 'newMovie',
     component: NewMovie
-  }
+  },
+  // {
+  //   path: '/salas',
+  //   name: 'rooms',
+  //   component: () => import(/* webpackChunkName: "about" */ '../views/room/Rooms.vue')
+  // },
+  // {
+  //   path: '/salas/:room_id',
+  //   name: 'roomShow',
+  //   component: Room
+  // },
+  // {
+  //   path: '/salas/novo',
+  //   name: 'newRoom',
+  //   component: NewRoom
+  // },
 ]
 
 const router = new VueRouter({
